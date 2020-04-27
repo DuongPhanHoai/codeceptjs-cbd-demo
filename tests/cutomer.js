@@ -5,15 +5,15 @@ const sidebar = require('../components/mainSidebar');
 const pfgInfo = require('../data/pfg.json');
 
 
-Feature('Login successful');
+Feature('Check Customer page');
 
-Before( (I) => {
+Before((I) => {
   header.launchPageToLogin();
   header.clickSignIn();
 });
 
-Scenario('Signin successful', (I) => {
+Scenario('Customer page loads successfully',(I) => {
   login.submitLogin(pfgInfo.email, pfgInfo.pwd);
-  sidebar.seeMenuVolunteers('Volunteers');
+  sidebar.seeMenuCustomers('Customers');
+  
 })
-
