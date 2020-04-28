@@ -19,5 +19,11 @@ module.exports = {
   seeMenuCustomers(mnuName){
     I.waitForElement(menuCustomers.path);
     I.see(mnuName, menuCustomers.path);
+  },
+
+  gotoCustomers(){
+    I.waitForElement(menuCustomers.path, 5);
+    I.click(menuCustomers.path);
+    I.wait(5);
   }
 }
