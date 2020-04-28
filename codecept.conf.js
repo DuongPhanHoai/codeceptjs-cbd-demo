@@ -6,7 +6,7 @@ exports.config = {
   output: './reports',
   helpers: {
     WebDriver: {
-      url: 'http://localhost',
+      url: 'http://192.168.45.173:8080',
       browser: 'chrome'
     }
   },
@@ -24,13 +24,6 @@ exports.config = {
   "plugins": {
     "allure": {
       "enabled": true
-    },
-    "reportPortal": {
-      "require": "./hooks/reportPortal.js",
-      "token": "975a267c-bdfa-412c-9a54-553bc192c859",
-      "endpoint": "http://localhost:8088/api/v1/",
-      "launch": "CodeceptJS-DEMO-Pantry-For-Good",
-      "project": "codeceptjs-demo"
     }
   }
 }

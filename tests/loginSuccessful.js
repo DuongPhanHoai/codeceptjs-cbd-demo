@@ -7,12 +7,13 @@ const pfgInfo = require('../data/pfg.json');
 
 Feature('Login successful');
 
-Before((I) => {
+Before( (I) => {
   header.launchPageToLogin();
+  header.clickSignIn();
 });
 
-Scenario('Signin successful', async (I) => {
+Scenario('Signin successful', (I) => {
   login.submitLogin(pfgInfo.email, pfgInfo.pwd);
-  sidebar.seeMenuSetting();
-}).tag('@regression').tag('@smoke');
+  sidebar.seeMenuVolunteers('Volunteers');
+})
 

@@ -1,19 +1,29 @@
 const baseComponent = require('../lib/webpath/baseComponent');
 const menuItem = require('../lib/webpath/menuItem');
 const tagName = require('../lib/webpath/tagName');
-const contentWrapper = require('./contentWrapper');
 
-const mainSidebar = new baseComponent(contentWrapper.contentWrapper, 'mainSidebar', {tag:tagName.div, class:'main-sidebar'});
-
-
+const mainSidebar = new baseComponent(null, 'mainSidebar', {tag:tagName.div, class:'main-sidebar'});
 
 const menuDelivery = new menuItem(mainSidebar, 'menuDelivery', 'Delivery');
-const menuSetting = new menuItem(mainSidebar, 'menuSetting', 'Settings');
+const menuVolunteers = new menuItem(mainSidebar, 'menuSetting', 'Volunteers');
+const menuCustomers = new menuItem(mainSidebar, 'menuCustomers', 'Customers');
 
 const { I } = inject();
 
 module.exports = {
-  seeMenuSetting() {
-    I.see(menuSetting.path);
+  seeMenuVolunteers(mnuName) {
+    I.waitForElement(menuVolunteers.path);
+    I.see(mnuName, menuVolunteers.path);
+  },
+
+  seeMenuCustomers(mnuName){
+    I.waitForElement(menuCustomers.path);
+    I.see(mnuName, menuCustomers.path);
+  },
+
+  gotoCustomers(){
+    I.waitForElement(menuCustomers.path, 5);
+    I.click(menuCustomers.path);
+    I.wait(5);
   }
 }

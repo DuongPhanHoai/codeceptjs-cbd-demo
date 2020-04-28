@@ -43,6 +43,9 @@ Some drivers need to start as following, please run it in the separate console o
 - Protractor:
   webdriver-manager start
 
+  If you get the error when starting webdriver server then you need to install driver
+  selenium-standalone install --singleDriverInstall=chrome
+
 ******** START REPORT PORTAL ******
 - To start report portal at port 8088, use yml file ./config/docker-compose.yml
 - Add Project 'codeceptjs-demo'
